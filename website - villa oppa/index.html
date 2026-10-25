@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>וילה אופא - ימי גיבוש והנהלה</title>
+    <style>
+        :root {
+            --bg-color: #5a5c5e; 
+            --text-color: #ffffff;
+            --accent-pink: #d1a5ad;
+            --table-bg: #ffffff;
+            --table-text: #000000;
+            --green-border: #2ecc71; /* צבע המסגרת הירוקה */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            overflow-x: hidden; /* מונע גלישה לצדדים במובייל */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- Header --- */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .logo {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 85px;
+            height: 85px;
+            background-color: var(--accent-pink);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #222;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 1.1;
+        }
+        
+        .logo span {
+            font-size: 8px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .header-content p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+
+        /* --- Main Image --- */
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            margin-bottom: 30px;
+            display: block;
+            background-color: #444;
+        }
+
+        /* --- Layout Grid --- */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #777;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: normal;
+            margin: 0 0 5px 0;
+        }
+
+        /* --- Left Column: Features --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        .feature-icon {
+            width: 35px;
+            height: 35px;
+            flex-shrink: 0;
+            fill: none;
+            stroke: var(--text-color);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* --- כפתור התקשרות מעודכן --- */
+        .btn-call {
+            background-color: var(--accent-pink);
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column; /* מסדר את הטקסט מעל המספר */
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 14px 20px;
+            border-radius: 10px;
+            border: 4px solid #006A4E; /* מסגרת ירוקה */
+            box-shadow: 0 0 12px rgba(0, 106, 78, 0.4); /* הילה ירוקה עדינה */
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.2s, opacity 0.3s;
+            text-align: center;
+        }
+
+        .btn-call:hover {
+            opacity: 0.95;
+            transform: scale(1.01);
+        }
+
+        .call-now-label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #444; /* אותו צבע כמו הרקע */
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 2px 12px;
+            border-radius: 20px;
+        }
+
+        .call-number-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.35rem;
+            font-weight: bold;
+            flex-wrap: wrap; /* מונע גלישה במסכים צרים מאוד */
+        }
+
+        /* --- Right Column: Pricing & Form --- */
+        .sub-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            margin-top: -80px;
+        }
+
+        .sub-images img {
+            width: calc(50% - 5px);
+            height: 140px;
+            object-fit: cover;
+            border-radius: 2px;
+            background-color: #444;
+        }
+
+        .pricing-section p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--table-bg);
+            color: var(--table-text);
+            text-align: center;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+        }
+
+        th {
+            background-color: var(--accent-pink);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        td {
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .contact-form input {
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-pink);
+            color: #000;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* --- Responsive (התאמה למובייל וטאבלט) --- */
+        @media (max-width: 800px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .header {
+                flex-direction: column;
+                padding-top: 10px;
+            }
+            .logo {
+                position: static;
+                margin-bottom: 15px;
+            }
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            .header-content p {
+                font-size: 1rem;
+            }
+            .sub-images {
+                margin-top: 0;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .call-number-row {
+                font-size: 1.2rem;
+            }
+            th, td {
+                padding: 8px 5px;
+                font-size: 0.9rem;
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                OPPA<br><span>LUXURY VILLA</span>
+            </div>
+            <div class="header-content">
+                <h1>VILLA &nbsp;OPPA</h1>
+                <p>ימי הנהלה | ימי אסטרטגיה | האקתונים | ימי צוות | Offsite</p>
+            </div>
+        </header>
+
+        <!-- Main Hero Image -->
+        <img src="pool.jpg" alt="וילה אופא בריכה" class="hero-image">
+
+        <div class="main-grid">
+            
+            <!-- Left Column -->
+            <div class="left-col">
+                <h2>מה המתחם כולל?</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span>וילה פרטית לשימוש בלעדי</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M2 4v16M22 4v16M2 8h20M2 12h20M6 4v4M10 4v4M14 4v4M18 4v4"></path></svg>
+                        <span>7 סוויטות עם חדרי רחצה</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M2 12h20M2 16h20M2 20h20M6 12v8M10 12v8M14 12v8M18 12v8"></path></svg>
+                        <span>בריכת שחייה<br>(25 מטר)</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        <span>אזורי עבודה ומסך למצגות</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"></path><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                        <span>סנוקר ופינג פונג</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                        <span>אינטרנט אלחוטי מהיר</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg>
+                        <span>מטבח פנים וחוץ מאובזר</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><path d="M9 10a3 3 0 1 1 6 0c0 1.5-1.5 3-3 4"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <span>חניה פרטית</span>
+                    </div>
+                </div>
+
+                <!-- כפתור ההתקשרות המעודכן -->
+                <a href="tel:0522927705" class="btn-call">
+                    <span class="call-now-label">מוזמנים להתקשר</span>
+                    <div class="call-number-row">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>רויטל 052-2927705</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col">
+                
+                <!-- Sub Images -->
+                <div class="sub-images">
+                    <img src="table.jpg" alt="אירוח בשולחן">
+                    <img src="livingroom.jpg" alt="סלון הוילה">
+                </div>
+
+                <div class="pricing-section">
+                    <h3>מחירון חבילות אירוח לחברות</h3>
+                    <p>המחירים תקפים לימי א'-ד' | אינם כוללים מע"מ</p>
+                    
+                    <table>
+                        <tr>
+                            <th>תקופה</th>
+                            <th>יום Offsite ללא לינה<br>(עד 25 איש)</th>
+                            <th>אירוח עם לינה<br>(עד 16 איש)</th>
+                        </tr>
+                        <tr>
+                            <td>אפריל - אוקטובר</td>
+                            <td>₪ 7,650</td>
+                            <td>₪ 9,300</td>
+                        </tr>
+                        <tr>
+                            <td>נובמבר - דצמבר ומרץ</td>
+                            <td>₪ 7,000</td>
+                            <td>₪ 8,400</td>
+                        </tr>
+                        <tr>
+                            <td>ינואר - פברואר</td>
+                            <td>₪ 5,800</td>
+                            <td>₪ 7,600</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="form-section">
+                    <h3>השאירו פרטים ונחזור אליכם</h3>
+                    
+                    <form class="contact-form" action="https://formspree.io/f/moeazona" method="POST">
+                        <input type="text" name="שם" placeholder="שם מלא / שם החברה" required>
+                        <input type="tel" name="טלפון" placeholder="מספר טלפון" required>
+                        <input type="email" name="מייל" placeholder="כתובת דואר אלקטרוני" required>
+                        <button type="submit" class="btn-submit">שלחו לי פרטים נוספים</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>vilaopa@gmail.com</div>
+            <div>וילה אופא, פרדס חנה כרכור</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

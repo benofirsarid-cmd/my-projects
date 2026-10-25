@@ -1,0 +1,22 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# PyInstaller / Build outputs & executables
+build/
+dist/
+_internal/
+*.exe
+*.pkg
+*.pyz
+
+# Bytecode and caches
+__pycache__/
+*.pyc
+
+# PyTorch & deep learning dependencies if stored locally
+torch/
+*.dll
+*.so
+*.dylib
